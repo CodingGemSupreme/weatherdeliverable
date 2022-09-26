@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import weatherData from "./weatherData";
+import Weather from "./components/weatherRender";
 
+
+
+const weatherShow=
+weatherData.map((ele, index) =>{
+  return(
+   
+      <Weather {...ele} key={index} 
+      />
+     );
+});
+console.log(`just checkin the weather:${weatherShow}`)
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>GA Weather Forecast</h1>
       </header>
+      <section>
+       {weatherShow}
+      </section>
     </div>
   );
 }
